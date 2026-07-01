@@ -1,0 +1,98 @@
+[
+  {
+    "title": ["Erkläre das österreichische", "Eich- und Vermessungswesen"],
+    "content": "Erkläre die Aufgaben und die Organisationsstruktur des Bundesamts für Eich- und Vermessungswesen (BEV) in Österreich. Welche Gruppen und Abteilungen gibt es und wofür sind sie zuständig?"
+  },
+  {
+    "title": ["Was ist APOS?", "Satellitenpositionierung in Echtzeit"],
+    "content": "Erkläre mir das Austrian Positioning Service (APOS) des BEV. Wie funktioniert die Echtzeit-Positionierung auf 1-2 cm genau und welche Anwendungen gibt es in Vermessung, Bauwesen und Landwirtschaft?"
+  },
+  {
+    "title": ["Referenzsysteme verstehen", "MGI, ETRS89 und EVRS"],
+    "content": "Was sind die Unterschiede zwischen den österreichischen Referenzsystemen MGI/GK, ETRS89 und EVRS? Wofür werden sie verwendet und wie hängen sie zusammen?"
+  },
+  {
+    "title": ["Wie wird das","Kelvin dargestellt?"],
+    "content": "Erkläre mir, wie die SI-Basiseinheit Kelvin (K) am BEV dargestellt und weitergegeben wird. Welche nationalen Normale werden verwendet und wie funktioniert die Rückführung auf internationale Referenzstandards?"
+  },
+  {
+    "title": ["Digitale Katastralmappe", "Grundlage für Grundstücke"],
+    "content": "Was ist die Digitale Katastralmappe (DKM) und wie wird sie geführt? Welche Rolle spielt sie für Eigentumsschutz, Grenzsicherheit und den Grundstücksverkehr in Österreich?"
+  },
+  {
+    "title": ["Marktüberwachung am BEV", "Aufgaben und Produktbereiche"],
+    "content": "Welche Produktbereiche überwacht das BEV als Marktüberwachungsbehörde? Erkläre die reaktiven und proaktiven Maßnahmen sowie die Zusammenarbeit mit Herstellern und Importeuren."
+  },
+  {
+    "title": ["VLBI Korrelationszentrum", "Weltraumvermessung in Wien"],
+    "content": "Was macht das VLBI Korrelationszentrum des BEV? Wie wird Very Long Baseline Interferometry genutzt, um das himmelfeste Referenzsystem (ICRS) abzuleiten und die Erdorientierung zu bestimmen?"
+  },
+  {
+    "title": ["Eichung von Messgeräten", "Wie bleibt Messen verlässlich?"],
+    "content": "Erkläre den Prozess der Eichung von Messgeräten in Österreich. Welche Rolle spielen das BEV, die Eichämter und ermächtigte Eichstellen bei der Sicherstellung korrekter Messungen im geschäftlichen Verkehr?"
+  },
+  {
+    "title": ["Durchflussmessung", "Von Benzin bis Wasserstoff"],
+    "content": "Das Labor Durchfluss Flüssigkeiten (E421) des BEV prüft Messanlagen für Kraftstoffe, Mineralöle, Flüssiggas, Wasserstoff und Lebensmittel. Erkläre, wie diese Prüfstände arbeiten und warum präzise Messungen steuerrelevant sind."
+  },
+  {
+    "title": ["Geodätisches Referenzsystem", "Grundlage für GPS-Vermessung"],
+    "content": "Warum ist ein einheitliches geodätisches Referenzsystem wichtig? Erkläre die Bedeutung von Festpunktfeldern, Transformationsmodellen und dem Österreichischen Schweregrundnetz für die Vermessung."
+  },
+  {
+    "title": ["Staatsgrenzen vermessen", "Aufgaben der Stabsabteilung A2"],
+    "content": "Wie werden die österreichischen Staatsgrenzen vermessen, dokumentiert und erhalten? Erkläre die bilaterale Zusammenarbeit mit Nachbarstaaten und die Arbeit der Grenzkommissionen."
+  },
+  {
+    "title": ["GIP – Wegenetz Österreich", "Digitales Verkehrsnetz"],
+    "content": "Was ist die Graphenintegrationsplattform (GIP) und wie wird sie aus dem Digitalen Landschaftsmodell (DLM) des BEV abgeleitet? Wofür wird das österreichweite Wegenetz verwendet?"
+  },
+  {
+    "title": ["Notifizierte Stelle BEV", "EU-Konformitätsbewertung"],
+    "content": "Das BEV ist notifizierte Stelle für Messgeräte (MID), nichtselbsttätige Waagen (NAWID) und persönliche Schutzausrüstung (PSA). Erkläre, was das bedeutet und wie Produkte dadurch freien Marktzugang in der EU erhalten."
+  },
+  {
+    "title": ["GeoNam – Ortsnamen", "Offizielle Geodatenbank"],
+    "content": "Was ist GeoNam, die österreichische Datenbank für geographische Ortsbezeichnungen? Wie werden Ortsnamen standardisiert und in Verwaltung, GIS und öffentlichen Diensten genutzt?"
+  },
+  {
+    "title": ["Luftbilder und Orthophotos", "Österreich aus der Vogelperspektive"],
+    "content": "Wie werden die digitalen Luftbilder (DLB) und Orthophotos (DOP) des BEV erstellt? Erkläre den Beschaffungszyklus, die Qualitätssicherung und die vielfältigen Anwendungen in Planung, Umweltmonitoring und Kataster."
+  },
+  {
+    "title": ["Punzierungskontrolle", "Edelmetallprüfung seit 2025"],
+    "content": "Seit 2025 ist die Punzierungskontrolle beim BEV angesiedelt. Was wird geprüft, wie werden Feingehaltskontrollen durchgeführt und welche Rolle spielt die Zusammenarbeit mit Zollbehörden?"
+  },
+  {
+    "title": ["Energieberatung des Bundes", "Klimaschutz in der Verwaltung"],
+    "content": "Die Energieberater:innen des Bundes sind beim BEV angesiedelt. Wie unterstützen sie Bundesdienststellen, Kasernen und Schulen bei der Optimierung des Energieeinsatzes und der Reduktion von Emissionen?"
+  },
+  {
+    "title": ["Digitales Geländemodell", "Höhendaten aus Laserscanning"],
+    "content": "Wie werden digitale Geländemodelle (DGM) und Oberflächenmodelle (DOM) mittels Airborne Laserscanning (ALS) erstellt? Wofür werden diese 3D-Daten in Hochwasserschutz, Infrastruktur und Planung genutzt?"
+  },
+  {
+    "title": ["WELMEC und EURAMET", "Internationale Zusammenarbeit"],
+    "content": "Das BEV arbeitet in internationalen Gremien wie WELMEC und EURAMET mit. Erkläre die Bedeutung dieser Organisationen für die Harmonisierung der Messtechnik und die Teilnahme an europäischen Forschungsprojekten."
+  },
+  {
+    "title": ["Temperaturmessung", "Fixpunkte und Kalibrierung"],
+    "content": "Das Labor Temperatur (E422) des BEV kalibriert Glasthermometer, Widerstandsthermometer und Thermoelemente. Erkläre die Bedeutung von Fixpunkten (Tripelpunkte, Erstarrungspunkte) für die Darstellung des Kelvin."
+  },
+  {
+    "title": ["Adressregister Österreich", "Zentrale Referenz für Adressen"],
+    "content": "Was ist das Österreichische Adressregister (AGWR) und wie wird es vom BEV geführt? Wie werden Adressdaten mit Kataster, Grundbuch und anderen Registern verknüpft?"
+  },
+  {
+    "title": ["Historische Karten", "Archiv des BEV"],
+    "content": "Das BEV führt ein historisches Landkartenarchiv und digitalisiert alte Kartenbestände. Erkläre die Bedeutung dieser Archivierung für die langfristige Verfügbarkeit kartographischer Informationen und die Restaurierung historischer Unterlagen."
+  },
+  {
+    "title": ["EUREF Datenzentrum", "Europäisches GNSS-Monitoring"],
+    "content": "Das BEV betreibt eines der zentralen europäischen EUREF-Datenzentren. Welche Rolle spielt es bei der Qualitätssicherung und Bereitstellung von GNSS-Daten des EUREF Permanent Network (EPN)?"
+  },
+  {
+    "title": ["Geoid – Das Höhenmodell", "Vom GPS zur Meereshöhe"],
+    "content": "Was ist das Geoid und wie wird es vom BEV berechnet? Wie ermöglicht die Geoidbestimmung die Umrechnung von GNSS-basierten geometrischen Höhen in physikalische Höhen für das europäische Höhenreferenzsystem EVRS?"
+  }
+]

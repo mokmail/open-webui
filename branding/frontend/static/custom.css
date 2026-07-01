@@ -1,0 +1,1378 @@
+/* ============================================================
+   THEME: bev  —  injected via rebrand overlay (/static/custom.css)
+   Austrian Bundes Corporate Design 4.0 — Farbtheme "Taubenblau"
+   Modern, flat, AI-first. Scoped to html.bev (light-based).
+   Palette: brand-01 #286f9c · brand-02 #104166 · f-01 #e9f0f5
+   Signature: 25° red-white-red flag accent (Bundesflagge).
+   ============================================================ */
+
+html.bev {
+	/* Brand tokens */
+	--bev-brand-01: #286f9c; /* Taubenblau hell */
+	--bev-brand-02: #104166; /* Taubenblau dunkel */
+	--bev-brand-03: #4f8bb3; /* Taubenblau bright */
+	--bev-f-01: #e9f0f5; /* 10% Designfarbe hell — surfaces */
+	--bev-line: #ccd9de; /* Trennlinien / Rahmen */
+	--bev-table: #e5ecee; /* Tabellenhintergrund */
+	--bev-text: #1f3340; /* primary text */
+	--bev-text-02: #4d6678; /* secondary text */
+	--bev-red: #e1320f; /* Bundes-Flaggenrot (Akzent) */
+
+	/* Tailwind v4 color overrides — blue-tinted neutral scale */
+	--color-gray-50: #e9f0f5;
+	--color-gray-100: #dce8f0;
+	--color-gray-200: #ccd9de;
+	--color-gray-300: #b6c8d4;
+	--color-gray-400: #8ba6b8;
+	--color-gray-500: #6b8294;
+	--color-gray-600: #4d6678;
+	--color-gray-700: #2f4654;
+	--color-gray-800: #1f3340;
+	--color-gray-850: #163040;
+	--color-gray-900: #122029;
+	--color-gray-950: #0a141b;
+
+	/* Brand blue scale (primary actions, links, focus, checkboxes) */
+	--color-blue-50: #e9f0f5;
+	--color-blue-100: #d6e4ee;
+	--color-blue-200: #b3cfe2;
+	--color-blue-300: #82aecd;
+	--color-blue-400: #4f8bb3;
+	--color-blue-500: #286f9c;
+	--color-blue-600: #286f9c;
+	--color-blue-700: #1d5a82;
+	--color-blue-800: #104166;
+	--color-blue-900: #0a3456;
+}
+
+/* Source Sans Pro / 3 — Bundes web typeface (loaded by loader.js) */
+html.bev,
+html.bev body,
+html.bev pre,
+html.bev input,
+html.bev textarea,
+html.bev button,
+html.bev select {
+	font-family: 'Source Sans 3', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Inter',
+		ui-sans-serif, system-ui, 'Segoe UI', Roboto, Ubuntu, Cantarell, 'Noto Sans', sans-serif,
+		'Apple Color Emoji', 'Segoe UI Emoji';
+}
+
+html.bev body {
+	color: var(--bev-text);
+	background-color: #ffffff;
+	background-image: radial-gradient(1200px 620px at 88% -12%, rgb(40 111 156 / 0.08), transparent 62%),
+		radial-gradient(960px 520px at -8% 112%, rgb(16 65 102 / 0.07), transparent 60%);
+	background-attachment: fixed;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+html.bev h1,
+html.bev h2,
+html.bev h3,
+html.bev h4 {
+	font-weight: 700;
+	letter-spacing: -0.011em;
+	color: var(--bev-brand-02);
+}
+
+/* Signature: thin tri-color top accent (blue → blue → flag-red) */
+html.bev body::before {
+	content: '';
+	position: fixed;
+	inset: 0 0 auto 0;
+	height: 3px;
+	background: linear-gradient(90deg, var(--bev-brand-02) 0%, var(--bev-brand-01) 55%, var(--bev-red) 100%);
+	z-index: 9999;
+	pointer-events: none;
+}
+
+/* Primary actions (bg-black text-white pattern) → Taubenblau */
+html.bev .bg-black.text-white {
+	background-color: var(--bev-brand-01);
+	color: #fff;
+}
+html.bev .bg-black.text-white:hover {
+	background-color: var(--bev-brand-02);
+}
+
+/* Subtle, modern surface elevation for modals / dropdowns */
+html.bev .shadow-lg,
+html.bev .shadow-xl,
+html.bev .shadow-3xl {
+	box-shadow: 0 1px 2px rgb(16 65 102 / 0.04), 0 12px 32px -12px rgb(16 65 102 / 0.22);
+}
+
+/* Brand-tinted selection */
+html.bev ::selection {
+	background: rgb(40 111 156 / 0.22);
+	color: var(--bev-brand-02);
+}
+
+/* Refined blue-tinted scrollbars */
+html.bev ::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+}
+html.bev ::-webkit-scrollbar-track {
+	background: transparent;
+}
+html.bev ::-webkit-scrollbar-thumb {
+	background: #b6c8d4;
+	border-radius: 9999px;
+	border: 2px solid transparent;
+	background-clip: padding-box;
+}
+html.bev ::-webkit-scrollbar-thumb:hover {
+	background: #8ba6b8;
+	background-clip: padding-box;
+}
+html.bev * {
+	scrollbar-color: #b6c8d4 transparent;
+}
+
+/* Splash screen — deep Taubenblau gradient + 25° red-white-red flag accent.
+   The .dark variant covers the brief FOUC moment where the upstream inline
+   script has added `dark` before loader.js switches to `bev`. */
+html.bev #splash-screen,
+html.bev.dark #splash-screen {
+	background: linear-gradient(135deg, #0a3456 0%, #104166 38%, #286f9c 78%, #4f8bb3 100%);
+}
+html.bev #logo {
+	filter: brightness(0) invert(1);
+}
+html.bev #splash-screen::after {
+	content: '';
+	position: absolute;
+	left: -12%;
+	bottom: 22%;
+	width: 150%;
+	height: 18px;
+	background: linear-gradient(
+		to bottom,
+		var(--bev-red) 0 33%,
+		#ffffff 33% 66%,
+		var(--bev-red) 66% 100%
+	);
+	transform: rotate(-25deg);
+	transform-origin: left center;
+	opacity: 0.9;
+	pointer-events: none;
+}
+
+/* ============================================================
+   THEME: bev-red  —  Bundes CD Farbtheme "Rot" + AI coloring
+   More red (Bundes-Flaggenrot + Kampagnen-akzente), animated
+   gradient meshes / aurora, flowing accent bar, button sheen.
+   Scoped to html.bev-red (light-based).
+   ============================================================ */
+
+html.bev-red {
+	--bev-r-brand-01: #9e0529; /* Designfarbe hell */
+	--bev-r-brand-02: #720009; /* Designfarbe dunkel */
+	--bev-r-brand-03: #c01a3f;
+	--bev-r-f-01: #f5e6e9; /* 10% Designfarbe hell */
+	--bev-r-line: #e6cdd4;
+	--bev-r-text: #331822;
+	--bev-r-text-02: #6e3d4f;
+	--bev-r-flag: #e1320f; /* Bundes-Flaggenrot */
+	--bev-r-accent-1: #e94727; /* Kampagnen-Akzent */
+	--bev-r-accent-2: #d5345f; /* Kampagnen-Akzent */
+	--bev-r-accent-3: #d19933; /* Kampagnen-Akzent */
+
+	/* Warm red-tinted neutral scale */
+	--color-gray-50: #f5e6e9;
+	--color-gray-100: #f0dde2;
+	--color-gray-200: #e6cdd4;
+	--color-gray-300: #d8b3bd;
+	--color-gray-400: #b88694;
+	--color-gray-500: #946072;
+	--color-gray-600: #6e3d4f;
+	--color-gray-700: #4d2533;
+	--color-gray-800: #331822;
+	--color-gray-850: #261019;
+	--color-gray-900: #1c0d13;
+	--color-gray-950: #120709;
+
+	/* Primary scale mapped to Bundes Rot */
+	--color-blue-50: #f5e6e9;
+	--color-blue-100: #efcfd6;
+	--color-blue-200: #e6a8b5;
+	--color-blue-300: #d67a8e;
+	--color-blue-400: #c01a3f;
+	--color-blue-500: #9e0529;
+	--color-blue-600: #9e0529;
+	--color-blue-700: #720009;
+	--color-blue-800: #5a0007;
+	--color-blue-900: #3d0005;
+
+	/* Sharper, more "AI/precise" corner radii */
+	--radius-sm: 0.0625rem;
+	--radius-md: 0.125rem;
+	--radius-lg: 0.1875rem;
+	--radius-xl: 0.3125rem;
+	--radius-2xl: 0.4375rem;
+	--radius-3xl: 0.625rem;
+	--radius-4xl: 0.875rem;
+}
+
+html.bev-red,
+html.bev-red body,
+html.bev-red pre,
+html.bev-red input,
+html.bev-red textarea,
+html.bev-red button,
+html.bev-red select {
+	font-family: 'Source Sans 3', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Inter',
+		ui-sans-serif, system-ui, 'Segoe UI', Roboto, Ubuntu, Cantarell, 'Noto Sans', sans-serif,
+		'Apple Color Emoji', 'Segoe UI Emoji';
+}
+
+html.bev-red body {
+	color: var(--bev-r-text);
+	background-color: #fff5f6;
+	background-image: radial-gradient(900px 520px at 82% -10%, rgb(225 50 15 / 0.1), transparent 62%),
+		radial-gradient(820px 480px at -8% 112%, rgb(158 5 41 / 0.1), transparent 60%);
+	background-attachment: fixed;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+html.bev-red h1,
+html.bev-red h2,
+html.bev-red h3,
+html.bev-red h4 {
+	font-weight: 700;
+	letter-spacing: -0.011em;
+	color: var(--bev-r-brand-02);
+}
+
+/* Animated tri-color top accent: deep red → flag red → magenta → amber */
+html.bev-red body::before {
+	content: '';
+	position: fixed;
+	inset: 0 0 auto 0;
+	height: 3px;
+	background: linear-gradient(
+		90deg,
+		#720009 0%,
+		#9e0529 22%,
+		#e1320f 44%,
+		#d5345f 64%,
+		#d19933 82%,
+		#720009 100%
+	);
+	background-size: 300% 100%;
+	z-index: 9999;
+	pointer-events: none;
+	animation: bev-red-flow 7s ease-in-out infinite, bev-red-pulse 2.8s ease-in-out infinite;
+}
+
+/* AI-style aurora + faint grid drifting behind the app (compositor-only: transform/opacity) */
+html.bev-red body::after {
+	content: '';
+	position: fixed;
+	inset: -10%;
+	z-index: -1;
+	pointer-events: none;
+	background: radial-gradient(640px 440px at 30% 22%, rgb(225 50 15 / 0.14), transparent 62%),
+		radial-gradient(580px 400px at 72% 78%, rgb(213 52 95 / 0.14), transparent 62%),
+		radial-gradient(500px 340px at 50% 50%, rgb(209 153 51 / 0.08), transparent 66%),
+		repeating-linear-gradient(90deg, transparent 0 59px, rgb(158 5 41 / 0.04) 59px 60px),
+		repeating-linear-gradient(0deg, transparent 0 59px, rgb(158 5 41 / 0.04) 59px 60px);
+	will-change: transform, opacity;
+	animation: bev-red-aurora 16s ease-in-out infinite;
+}
+
+/* Primary actions → Bundes Rot (static gradient) + moving sheen + hover lift */
+html.bev-red .bg-black.text-white {
+	color: #fff;
+	position: relative;
+	overflow: hidden;
+	transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+	background: linear-gradient(110deg, #720009 0%, #9e0529 50%, #720009 100%);
+	box-shadow: 0 6px 20px -10px rgb(158 5 41 / 0.55);
+}
+html.bev-red .bg-black.text-white:hover {
+	transform: translateY(-1px);
+	filter: brightness(1.06);
+	box-shadow: 0 12px 30px -8px rgb(114 0 9 / 0.8);
+}
+html.bev-red .bg-black.text-white::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);
+	transform: translateX(-130%);
+	animation: bev-red-sheen 3.6s ease-in-out infinite;
+	pointer-events: none;
+}
+
+/* Red-tinted elevation for modals / dropdowns */
+html.bev-red .shadow-lg,
+html.bev-red .shadow-xl,
+html.bev-red .shadow-3xl {
+	box-shadow: 0 1px 2px rgb(114 0 9 / 0.05), 0 12px 32px -12px rgb(158 5 41 / 0.24);
+}
+
+html.bev-red ::selection {
+	background: rgb(158 5 41 / 0.22);
+	color: var(--bev-r-brand-02);
+}
+
+html.bev-red ::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+}
+html.bev-red ::-webkit-scrollbar-track {
+	background: transparent;
+}
+html.bev-red ::-webkit-scrollbar-thumb {
+	background: #d8b3bd;
+	border-radius: 9999px;
+	border: 2px solid transparent;
+	background-clip: padding-box;
+}
+html.bev-red ::-webkit-scrollbar-thumb:hover {
+	background: #b88694;
+	background-clip: padding-box;
+}
+html.bev-red * {
+	scrollbar-color: #d8b3bd transparent;
+}
+
+/* Splash — animated deep-red AI gradient + animated 25° Austrian flag accent */
+html.bev-red #splash-screen,
+html.bev-red.dark #splash-screen {
+	background: linear-gradient(135deg, #3d0005 0%, #720009 35%, #9e0529 70%, #e1320f 100%);
+	background-size: 220% 220%;
+	animation: bev-red-splash 9s ease-in-out infinite;
+}
+html.bev-red #logo {
+	filter: brightness(0) invert(1);
+}
+html.bev-red #splash-screen::after {
+	content: '';
+	position: absolute;
+	left: -12%;
+	bottom: 22%;
+	width: 150%;
+	height: 18px;
+	background: linear-gradient(
+		to bottom,
+		#e1320f 0 33%,
+		#ffffff 33% 66%,
+		#e1320f 66% 100%
+	);
+	transform: rotate(-25deg);
+	transform-origin: left center;
+	opacity: 0.9;
+	pointer-events: none;
+	animation: bev-red-flag 4s ease-in-out infinite;
+}
+
+/* Keyframes — only animate when the user allows motion (Bundes AA/accessibility) */
+@keyframes bev-red-flow {
+	0%,
+	100% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+}
+@keyframes bev-red-aurora {
+	0%,
+	100% {
+		transform: translate3d(0, 0, 0) scale(1);
+		opacity: 0.85;
+	}
+	33% {
+		transform: translate3d(3%, -2%, 0) scale(1.08);
+		opacity: 1;
+	}
+	66% {
+		transform: translate3d(-2%, 2%, 0) scale(1.04);
+		opacity: 0.92;
+	}
+}
+@keyframes bev-red-sheen {
+	0% {
+		transform: translateX(-130%);
+	}
+	60%,
+	100% {
+		transform: translateX(130%);
+	}
+}
+@keyframes bev-red-splash {
+	0%,
+	100% {
+		background-position: 0% 0%;
+	}
+	50% {
+		background-position: 100% 100%;
+	}
+}
+@keyframes bev-red-flag {
+	0%,
+	100% {
+		transform: rotate(-25deg) translateX(0);
+		opacity: 0.85;
+	}
+	50% {
+		transform: rotate(-25deg) translateX(6%);
+		opacity: 1;
+	}
+}
+
+@keyframes bev-red-text {
+	0% {
+		background-position: 0% 50%;
+	}
+	100% {
+		background-position: 250% 50%;
+	}
+}
+@keyframes bev-red-pulse {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.6;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html.bev-red body::before,
+	html.bev-red body::after,
+	html.bev-red .bg-black.text-white::after,
+	html.bev-red #splash-screen,
+	html.bev-red #splash-screen::after {
+		animation: none !important;
+	}
+}
+
+/* ============================================================
+   THEME: bev-mono  —  pure black & white, flat, modern icons,
+   striking (compositor-friendly) motion graphics.
+   Scoped to html.bev-mono (light-based).
+   ============================================================ */
+
+html.bev-mono {
+	/* Pure monochrome neutral scale */
+	--color-gray-50: #fafafa;
+	--color-gray-100: #f2f2f2;
+	--color-gray-200: #e5e5e5;
+	--color-gray-300: #d4d4d4;
+	--color-gray-400: #a3a3a3;
+	--color-gray-500: #737373;
+	--color-gray-600: #525252;
+	--color-gray-700: #404040;
+	--color-gray-800: #262626;
+	--color-gray-850: #1a1a1a;
+	--color-gray-900: #141414;
+	--color-gray-950: #0a0a0a;
+
+	/* Primary scale → pure black */
+	--color-blue-50: #f2f2f2;
+	--color-blue-100: #e5e5e5;
+	--color-blue-200: #d4d4d4;
+	--color-blue-300: #a3a3a3;
+	--color-blue-400: #525252;
+	--color-blue-500: #000000;
+	--color-blue-600: #000000;
+	--color-blue-700: #1a1a1a;
+	--color-blue-800: #141414;
+	--color-blue-900: #0a0a0a;
+
+	/* Sharper, flatter corner radii */
+	--radius-sm: 0;
+	--radius-md: 0.125rem;
+	--radius-lg: 0.1875rem;
+	--radius-xl: 0.25rem;
+	--radius-2xl: 0.3125rem;
+	--radius-3xl: 0.4375rem;
+	--radius-4xl: 0.5625rem;
+}
+
+html.bev-mono,
+html.bev-mono body,
+html.bev-mono pre,
+html.bev-mono input,
+html.bev-mono textarea,
+html.bev-mono button,
+html.bev-mono select {
+	font-family: 'Source Sans 3', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Inter',
+		ui-sans-serif, system-ui, 'Segoe UI', Roboto, Ubuntu, Cantarell, 'Noto Sans', sans-serif,
+		'Apple Color Emoji', 'Segoe UI Emoji';
+}
+
+html.bev-mono body {
+	color: #000000;
+	background-color: #ffffff;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+html.bev-mono h1,
+html.bev-mono h2,
+html.bev-mono h3,
+html.bev-mono h4 {
+	font-weight: 700;
+	letter-spacing: -0.015em;
+	color: #000000;
+}
+
+/* Larger, moderner icons: bolder stroke + bumped sizes (scoped to svg) */
+html.bev-mono svg {
+	stroke-width: 2;
+}
+html.bev-mono svg.w-3\.5,
+html.bev-mono svg.h-3\.5 {
+	width: 1.125rem;
+	height: 1.125rem;
+}
+html.bev-mono svg.w-4,
+html.bev-mono svg.h-4 {
+	width: 1.25rem;
+	height: 1.25rem;
+}
+html.bev-mono svg.w-5,
+html.bev-mono svg.h-5 {
+	width: 1.5rem;
+	height: 1.5rem;
+}
+html.bev-mono svg.size-3 {
+	width: 1rem;
+	height: 1rem;
+}
+html.bev-mono svg.size-4 {
+	width: 1.25rem;
+	height: 1.25rem;
+}
+html.bev-mono svg.size-5 {
+	width: 1.5rem;
+	height: 1.5rem;
+}
+
+/* Subtle drifting grid overlay — always-on mono motion graphic */
+html.bev-mono body::after {
+	content: '';
+	position: fixed;
+	inset: 0;
+	z-index: 9998;
+	pointer-events: none;
+	background:
+		linear-gradient(#000 1px, transparent 1px) 0 0 / 46px 46px,
+		linear-gradient(90deg, #000 1px, transparent 1px) 0 0 / 46px 46px;
+	opacity: 0.035;
+	will-change: transform;
+	animation: bev-mono-grid 26s linear infinite;
+}
+
+/* Flat buttons: solid black, invert on hover, light sheen sweep */
+html.bev-mono .bg-black.text-white {
+	color: #ffffff;
+	background-color: #000000;
+	position: relative;
+	overflow: hidden;
+	box-shadow: none;
+	transition: background-color 0.18s ease, color 0.18s ease, box-shadow 0.18s ease,
+		transform 0.18s ease;
+}
+html.bev-mono .bg-black.text-white:hover {
+	background-color: #ffffff;
+	color: #000000;
+	transform: translateY(-1px);
+	box-shadow: inset 0 0 0 1.5px #000;
+}
+html.bev-mono .bg-black.text-white::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.35) 50%, transparent 100%);
+	transform: translateX(-130%);
+	animation: bev-mono-sheen 3.6s ease-in-out infinite;
+	pointer-events: none;
+}
+
+/* Flat surfaces: hairline outline instead of elevation */
+html.bev-mono .shadow-lg,
+html.bev-mono .shadow-xl,
+html.bev-mono .shadow-3xl {
+	box-shadow: 0 0 0 1px #e5e5e5;
+}
+
+/* Striking mono selection */
+html.bev-mono ::selection {
+	background: #000000;
+	color: #ffffff;
+}
+
+/* Mono scrollbars */
+html.bev-mono ::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+}
+html.bev-mono ::-webkit-scrollbar-track {
+	background: transparent;
+}
+html.bev-mono ::-webkit-scrollbar-thumb {
+	background: #000000;
+	border-radius: 0;
+	border: 2px solid transparent;
+	background-clip: padding-box;
+}
+html.bev-mono ::-webkit-scrollbar-thumb:hover {
+	background: #525252;
+	background-clip: padding-box;
+}
+html.bev-mono * {
+	scrollbar-color: #000000 transparent;
+}
+
+/* Chat input: 50% taller than the default (resting) height, and grows 50% more before scrolling */
+html.bev-mono #chat-input-container {
+	min-height: 3.75rem;
+	max-height: 36rem; /* max-h-96 (24rem) + 50% */
+}
+
+/* Generating indicator: while the assistant is responding, the composer's Stop
+   button is shown (distinctive SVG path). When present, turn the border black
+   and run a black dot all the way around the border (offset-path traces the
+   rounded rectangle) to signal generation in progress. */
+html.bev-mono #message-input-container:has(svg path[d^="M2.25 12c0-5.385"]) {
+	border-color: #000000;
+}
+html.bev-mono #message-input-container:has(svg path[d^="M2.25 12c0-5.385"])::after {
+	content: '';
+	position: absolute;
+	width: 8px;
+	height: 8px;
+	background: #000000;
+	border-radius: 50%;
+	offset-path: inset(0 round var(--radius-3xl, 0.5rem));
+	z-index: 30;
+	pointer-events: none;
+	animation: bev-mono-dot 2.4s linear infinite;
+}
+@keyframes bev-mono-dot {
+	from {
+		offset-distance: 0%;
+	}
+	to {
+		offset-distance: 100%;
+	}
+}
+
+/* Splash: pure black + white sonar rings (AI scanning pulse) */
+html.bev-mono #splash-screen,
+html.bev-mono.dark #splash-screen {
+	background: #000000;
+}
+html.bev-mono #logo {
+	filter: brightness(0) invert(1);
+}
+html.bev-mono #splash-screen::before,
+html.bev-mono #splash-screen::after {
+	content: '';
+	position: absolute;
+	top: 44%;
+	left: 50%;
+	width: 8rem;
+	height: 8rem;
+	margin: -4rem 0 0 -4rem;
+	border: 2px solid #ffffff;
+	border-radius: 50%;
+	opacity: 0;
+	pointer-events: none;
+	animation: bev-mono-radar 2.6s ease-out infinite;
+}
+html.bev-mono #splash-screen::after {
+	animation-delay: 1.3s;
+}
+
+@keyframes bev-mono-grid {
+	from {
+		transform: translate(0, 0);
+	}
+	to {
+		transform: translate(46px, 46px);
+	}
+}
+@keyframes bev-mono-sheen {
+	0% {
+		transform: translateX(-130%);
+	}
+	60%,
+	100% {
+		transform: translateX(130%);
+	}
+}
+@keyframes bev-mono-radar {
+	0% {
+		transform: scale(0.25);
+		opacity: 0.9;
+	}
+	100% {
+		transform: scale(2.6);
+		opacity: 0;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html.bev-mono body::after,
+	html.bev-mono .bg-black.text-white::after,
+	html.bev-mono #message-input-container:has(svg path[d^="M2.25 12c0-5.385"])::after,
+	html.bev-mono #splash-screen::before,
+	html.bev-mono #splash-screen::after {
+		animation: none !important;
+	}
+}
+
+/* ============================================================
+   bev-mono: clean minimal widget grid for suggested prompts
+   ============================================================ */
+
+html.bev-mono .bev-suggestions-grid {
+	display: grid !important;
+	grid-template-columns: repeat(1, 1fr);
+	gap: 0.75rem;
+	padding: 0;
+	max-height: none !important;
+	overflow: visible !important;
+	background: transparent;
+}
+
+@media (min-width: 640px) {
+	html.bev-mono .bev-suggestions-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (min-width: 1024px) {
+	html.bev-mono .bev-suggestions-grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+html.bev-mono .bev-suggestions-grid button[role="listitem"] {
+	position: relative;
+	flex: none !important;
+	width: auto !important;
+	border: 1px solid #e5e5e5;
+	border-radius: var(--radius-lg, 0.1875rem);
+	min-height: 4.5rem;
+	padding: 1rem;
+	margin: 0;
+	background: #ffffff;
+	cursor: pointer;
+	transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+	text-align: left;
+}
+
+html.bev-mono .bev-suggestions-grid button[role="listitem"]::before,
+html.bev-mono .bev-suggestions-grid button[role="listitem"]::after {
+	display: none;
+}
+
+html.bev-mono .bev-suggestions-grid button[role="listitem"] .font-medium {
+	font-size: 0.8125rem;
+	font-weight: 600;
+	color: #262626;
+	margin-bottom: 0.125rem;
+	transition: color 0.18s ease;
+}
+
+html.bev-mono .bev-suggestions-grid button[role="listitem"] .text-xs {
+	font-size: 0.6875rem;
+	color: #a3a3a3;
+	font-weight: 400;
+	line-height: 1.3;
+}
+
+html.bev-mono .bev-suggestions-grid button[role="listitem"]:hover {
+	border-color: #000000;
+	transform: translateY(-1px);
+	box-shadow: 0 0 0 1px #000000;
+}
+
+html.bev-mono .bev-suggestions-grid button[role="listitem"]:hover .font-medium {
+	color: #000000;
+}
+
+html.bev-mono .bev-suggestions-grid button[role="listitem"]:hover .text-xs {
+	color: #525252;
+}
+
+/* Show only first 9 suggestions (compiled JS shows all, CSS limits it) */
+html.bev-mono .bev-suggestions-grid button[role="listitem"]:nth-child(n+10) {
+	display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html.bev-mono .bev-suggestions-grid button[role="listitem"] {
+		transform: none !important;
+	}
+	html.bev-mono .bev-suggestions-grid .waterfall {
+		animation: none !important;
+	}
+}
+
+/* ============================================================
+   THEME: bev-green  —  ink on paper, environmental care
+   Cream paper, deep green ink strokes, fiber texture, hand-drawn
+   botanical accents, nib-pen borders.
+   Scoped to html.bev-green (light-based).
+   ============================================================ */
+
+html.bev-green {
+	/* Paper-warm neutral scale — cream/off-white paper */
+	--color-gray-50: #fcf8f0;
+	--color-gray-100: #f5efdf;
+	--color-gray-200: #e8dfc8;
+	--color-gray-300: #d4c8a8;
+	--color-gray-400: #b8a888;
+	--color-gray-500: #968668;
+	--color-gray-600: #786b50;
+	--color-gray-700: #5a5042;
+	--color-gray-800: #423d32;
+	--color-gray-850: #36322a;
+	--color-gray-900: #2a2620;
+	--color-gray-950: #1a1815;
+
+	/* Deep green ink scale */
+	--color-green-50: #f0f5f0;
+	--color-green-100: #dce8dc;
+	--color-green-200: #b8d1b8;
+	--color-green-300: #8fb88f;
+	--color-green-400: #6aa86a;
+	--color-green-500: #4a904a;
+	--color-green-600: #3a783a;
+	--color-green-700: #2d5a27;
+	--color-green-800: #22441e;
+	--color-green-900: #1a3318;
+	--color-green-950: #0d1a0c;
+
+	/* Primary scale — deep green ink */
+	--color-blue-50: #f0f5f0;
+	--color-blue-100: #dce8dc;
+	--color-blue-200: #b8d1b8;
+	--color-blue-300: #8fb88f;
+	--color-blue-400: #6aa86a;
+	--color-blue-500: #2d5a27;
+	--color-blue-600: #2d5a27;
+	--color-blue-700: #22441e;
+	--color-blue-800: #1a3318;
+	--color-blue-900: #0d1a0c;
+
+	/* Organic corner radii — paper feel */
+	--radius-sm: 0.125rem;
+	--radius-md: 0.25rem;
+	--radius-lg: 0.375rem;
+	--radius-xl: 0.5rem;
+	--radius-2xl: 0.75rem;
+	--radius-3xl: 1rem;
+	--radius-4xl: 1.5rem;
+}
+
+html.bev-green,
+html.bev-green body,
+html.bev-green pre,
+html.bev-green input,
+html.bev-green textarea,
+html.bev-green button,
+html.bev-green select {
+	font-family: 'Source Sans 3', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Inter',
+		ui-sans-serif, system-ui, 'Segoe UI', Roboto, Ubuntu, Cantarell, 'Noto Sans', sans-serif,
+		'Apple Color Emoji', 'Segoe UI Emoji';
+}
+
+html.bev-green h1,
+html.bev-green h2,
+html.bev-green h3,
+html.bev-green h4 {
+	font-family: 'InstrumentSerif', Georgia, serif;
+	font-weight: 400;
+	letter-spacing: -0.01em;
+	color: #1a1815;
+}
+
+html.bev-green body {
+	color: #2a2620;
+	background-color: #fcf8f0;
+	background-image:
+		radial-gradient(ellipse 800px 500px at 90% -10%, rgba(45, 90, 39, 0.05), transparent 60%),
+		radial-gradient(ellipse 600px 400px at -10% 110%, rgba(45, 90, 39, 0.04), transparent 55%);
+	background-attachment: fixed;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+/* Paper fiber texture overlay — compositor-friendly drift */
+html.bev-green body::after {
+	content: '';
+	position: fixed;
+	inset: 0;
+	z-index: 9998;
+	pointer-events: none;
+	background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)' opacity='0.035'/%3E%3C/svg%3E");
+	background-size: 300px 300px;
+	animation: bev-green-drift 60s linear infinite;
+	will-change: transform;
+}
+
+@keyframes bev-green-drift {
+	from { transform: translate(0, 0); }
+	to { transform: translate(300px, 300px); }
+}
+
+/* Top ink stroke — like a brush stroke across the page */
+html.bev-green body::before {
+	content: '';
+	position: fixed;
+	inset: 0 0 auto 0;
+	height: 4px;
+	background: linear-gradient(
+		90deg,
+		transparent 0%,
+		#1a3318 8%,
+		#2d5a27 20%,
+		#3a783a 35%,
+		#2d5a27 50%,
+		#1a3318 65%,
+		transparent 80%,
+		transparent 100%
+	);
+	background-size: 200% 100%;
+	z-index: 9999;
+	opacity: 0.7;
+	pointer-events: none;
+	filter: blur(0.5px);
+	animation: bev-green-brush 10s ease-in-out infinite;
+}
+
+@keyframes bev-green-brush {
+	0%, 100% {
+		background-position: 0% 50%;
+		opacity: 0.5;
+	}
+	50% {
+		background-position: 100% 50%;
+		opacity: 0.9;
+	}
+}
+
+/* Primary actions — deep green ink, nib pen stroke border */
+html.bev-green .bg-black.text-white {
+	color: #fcf8f0;
+	background-color: #1a3318;
+	position: relative;
+	overflow: hidden;
+	border-radius: var(--radius-lg);
+	box-shadow: none;
+	transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+html.bev-green .bg-black.text-white:hover {
+	background-color: #0d1a0c;
+	transform: translateY(-1px);
+}
+
+/* Ink spread/bleed on hover */
+html.bev-green .bg-black.text-white::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+	opacity: 0;
+	transition: opacity 0.3s ease;
+	pointer-events: none;
+	border-radius: inherit;
+}
+
+html.bev-green .bg-black.text-white:hover::after {
+	opacity: 1;
+}
+
+/* Paper surfaces: soft ink-shadow */
+html.bev-green .shadow-lg,
+html.bev-green .shadow-xl,
+html.bev-green .shadow-3xl {
+	box-shadow:
+		0 2px 8px -2px rgba(26, 24, 21, 0.08),
+		0 0 0 1px rgba(26, 24, 21, 0.04);
+	background-color: #fcf8f0;
+	background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)' opacity='0.015'/%3E%3C/svg%3E");
+	background-size: 300px 300px;
+}
+
+/* ── Popup hover surfaces — tooltips & menus ─────────────── */
+
+/* Tippy tooltip — paper tag with ink-stroke border */
+html.bev-green .tippy-box[data-theme~='dark'] {
+	background: #fcf8f0;
+	border: 1px solid #d4c8a8;
+	color: #2a2620;
+	box-shadow: 0 1px 6px -2px rgba(26, 24, 21, 0.12);
+	font-family: 'Source Sans 3', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Inter',
+		ui-sans-serif, system-ui, 'Segoe UI', Roboto, Ubuntu, Cantarell, 'Noto Sans', sans-serif,
+		'Apple Color Emoji', 'Segoe UI Emoji';
+	font-size: 0.7rem;
+	font-weight: 450;
+	letter-spacing: 0.01em;
+	border-radius: var(--radius-md);
+}
+html.bev-green .tippy-box[data-theme~='dark'] .tippy-arrow {
+	color: #fcf8f0;
+}
+
+/* Dropdown/menu surfaces — warm paper instead of pure white */
+html.bev-green .bg-white {
+	background-color: #fcf8f0;
+}
+
+/* Menu item hover — subtle ink wash */
+html.bev-green [role="menu"] button:hover,
+html.bev-green [class*="rounded-2xl"] button:hover {
+	background-color: #f5efdf;
+}
+
+/* Sub-menu dropdown surfaces */
+html.bev-green [class*="bg-white"][class*="shadow-lg"] {
+	background-color: #fcf8f0;
+	border-color: #d4c8a8;
+}
+
+/* Ink-stroked selection */
+html.bev-green ::selection {
+	background: rgba(45, 90, 39, 0.3);
+	color: #1a1815;
+}
+
+/* Paper-styled scrollbars with ink accents */
+html.bev-green ::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+}
+html.bev-green ::-webkit-scrollbar-track {
+	background: #f5efdf;
+}
+html.bev-green ::-webkit-scrollbar-thumb {
+	background: #b8a888;
+	border-radius: 0;
+	border: 2px solid #f5efdf;
+	background-clip: padding-box;
+}
+html.bev-green ::-webkit-scrollbar-thumb:hover {
+	background: #968668;
+}
+html.bev-green * {
+	scrollbar-color: #b8a888 #f5efdf;
+}
+
+/* Splash — blank paper sheet + ink drop spreading */
+html.bev-green #splash-screen,
+html.bev-green.dark #splash-screen {
+	background: #fcf8f0;
+	background-image:
+		radial-gradient(circle at 50% 48%, rgba(45, 90, 39, 0.08) 0%, transparent 55%),
+		url("data:image/svg+xml,%3Csvg viewBox='0 0 500 500' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.04' numOctaves='5'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)' opacity='0.04'/%3E%3C/svg%3E");
+	background-size: cover, 500px 500px;
+}
+html.bev-green #logo {
+	filter: brightness(0) saturate(100%) invert(10%) sepia(90%) saturate(500%) hue-rotate(100deg) brightness(50%) contrast(120%);
+}
+html.bev-green #splash-screen::before {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 2px;
+	height: 2px;
+	margin: -1px 0 0 -1px;
+	background: transparent;
+	border-radius: 50%;
+	box-shadow:
+		0 0 0 0 rgba(26, 51, 24, 0.6),
+		0 0 0 0 rgba(26, 51, 24, 0.4),
+		0 0 0 0 rgba(26, 51, 24, 0.2);
+	pointer-events: none;
+	animation: bev-green-ink-drop 3s ease-out infinite;
+}
+
+@keyframes bev-green-ink-drop {
+	0% {
+		box-shadow:
+			0 0 0 0 rgba(26, 51, 24, 0.5),
+			0 0 0 0 rgba(26, 51, 24, 0.3),
+			0 0 0 0 rgba(26, 51, 24, 0.1);
+	}
+	50% {
+		box-shadow:
+			0 0 0 50px rgba(26, 51, 24, 0),
+			0 0 0 100px rgba(26, 51, 24, 0),
+			0 0 0 150px rgba(26, 51, 24, 0);
+	}
+	100% {
+		box-shadow:
+			0 0 0 50px rgba(26, 51, 24, 0),
+			0 0 0 100px rgba(26, 51, 24, 0),
+			0 0 0 150px rgba(26, 51, 24, 0);
+	}
+}
+
+html.bev-green #splash-screen::after {
+	content: '';
+	position: absolute;
+	left: -12%;
+	bottom: 18%;
+	width: 150%;
+	height: 1px;
+	background: repeating-linear-gradient(
+		90deg,
+		transparent 0 10%,
+		rgba(26, 51, 24, 0.08) 10% 11%,
+		transparent 11% 20%,
+		rgba(26, 51, 24, 0.06) 20% 21%,
+		transparent 21% 30%,
+		rgba(26, 51, 24, 0.1) 30% 31%,
+		transparent 31% 50%,
+		rgba(26, 51, 24, 0.05) 50% 51%,
+		transparent 51% 70%,
+		rgba(26, 51, 24, 0.08) 70% 71%,
+		transparent 71% 90%,
+		rgba(26, 51, 24, 0.04) 90% 91%,
+		transparent 91% 100%
+	);
+	transform: rotate(-1deg);
+	transform-origin: left center;
+	opacity: 0.7;
+	pointer-events: none;
+}
+
+/* Chat input — blank paper, no border */
+html.bev-green #chat-input-container {
+	min-height: 4rem;
+	max-height: 36rem;
+	background: transparent;
+}
+
+html.bev-green #message-input-container {
+	border: none !important;
+	box-shadow: none !important;
+	background: transparent !important;
+}
+
+/* Generating indicator — ink dot tracing the outline */
+html.bev-green #message-input-container:has(svg path[d^="M2.25 12c0-5.385"])::after {
+	content: '';
+	position: absolute;
+	width: 5px;
+	height: 5px;
+	background: #1a3318;
+	border-radius: 50%;
+	offset-path: inset(-1px round var(--radius-3xl, 0.5rem));
+	z-index: 30;
+	pointer-events: none;
+	animation: bev-green-ink-dot 2.4s linear infinite;
+	filter: blur(0.3px);
+}
+@keyframes bev-green-ink-dot {
+	from { offset-distance: 0%; }
+	to { offset-distance: 100%; }
+}
+
+/* Suggestions grid — ink-stroked cards on paper substrate */
+html.bev-green .bev-suggestions-grid {
+	display: grid !important;
+	grid-template-columns: repeat(1, 1fr);
+	gap: 0.75rem;
+	padding: 0;
+	max-height: none !important;
+	overflow: visible !important;
+	background: transparent;
+}
+
+@media (min-width: 640px) {
+	html.bev-green .bev-suggestions-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (min-width: 1024px) {
+	html.bev-green .bev-suggestions-grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+html.bev-green .bev-suggestions-grid button[role="listitem"] {
+	position: relative;
+	flex: none !important;
+	width: auto !important;
+	border: 1.5px solid #d4c8a8;
+	border-radius: var(--radius-lg);
+	min-height: 5rem;
+	padding: 1rem 1rem 1rem 1.5rem;
+	margin: 0;
+	background: linear-gradient(135deg, #fcf8f0 0%, #faf5ea 100%);
+	background-image:
+		url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)' opacity='0.02'/%3E%3C/svg%3E");
+	background-size: 300px 300px;
+	cursor: pointer;
+	transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+	text-align: left;
+}
+
+/* Ink left-ruler margin with nib-tick marks */
+html.bev-green .bev-suggestions-grid button[role="listitem"]::before {
+	content: '';
+	position: absolute;
+	left: 0.125rem;
+	top: 0.5rem;
+	bottom: 0.5rem;
+	width: 1px;
+	background: linear-gradient(
+		to bottom,
+		transparent 0%,
+		rgba(45, 90, 39, 0.15) 5%,
+		rgba(45, 90, 39, 0.15) 25%,
+		transparent 25.5%,
+		transparent 40%,
+		rgba(45, 90, 39, 0.15) 40%,
+		rgba(45, 90, 39, 0.15) 55%,
+		transparent 55.5%,
+		transparent 70%,
+		rgba(45, 90, 39, 0.15) 70%,
+		rgba(45, 90, 39, 0.15) 85%,
+		transparent 85.5%,
+		transparent 100%
+	);
+	pointer-events: none;
+}
+
+html.bev-green .bev-suggestions-grid button[role="listitem"]::after {
+	content: '';
+	position: absolute;
+	right: -1px;
+	bottom: -1px;
+	width: 8px;
+	height: 8px;
+	border: 1.5px solid #d4c8a8;
+	border-left: none;
+	border-top: none;
+	border-radius: 0 0 var(--radius-lg) 0;
+	pointer-events: none;
+	opacity: 0.6;
+	transition: opacity 0.2s ease, border-color 0.2s ease;
+}
+
+html.bev-green .bev-suggestions-grid button[role="listitem"] .font-medium {
+	font-family: 'InstrumentSerif', Georgia, serif;
+	font-size: 0.8125rem;
+	font-weight: 500;
+	color: #2a2620;
+	margin-bottom: 0.25rem;
+	transition: color 0.2s ease;
+}
+
+html.bev-green .bev-suggestions-grid button[role="listitem"] .text-xs {
+	font-size: 0.6875rem;
+	color: #968668;
+	font-weight: 400;
+	line-height: 1.4;
+}
+
+html.bev-green .bev-suggestions-grid button[role="listitem"]:hover {
+	border-color: #1a3318;
+	background: linear-gradient(135deg, #faf6ed 0%, #f0ebe0 100%);
+	transform: translateY(-2px);
+	box-shadow:
+		0 4px 16px -6px rgba(26, 24, 21, 0.15),
+		inset 0 0 0 1px rgba(26, 51, 24, 0.08);
+}
+
+html.bev-green .bev-suggestions-grid button[role="listitem"]:hover::after {
+	opacity: 1;
+	border-color: #1a3318;
+}
+
+html.bev-green .bev-suggestions-grid button[role="listitem"]:hover::before {
+	background: linear-gradient(
+		to bottom,
+		transparent 0%,
+		rgba(26, 51, 24, 0.4) 5%,
+		rgba(26, 51, 24, 0.4) 25%,
+		transparent 25.5%,
+		transparent 40%,
+		rgba(26, 51, 24, 0.4) 40%,
+		rgba(26, 51, 24, 0.4) 55%,
+		transparent 55.5%,
+		transparent 70%,
+		rgba(26, 51, 24, 0.4) 70%,
+		rgba(26, 51, 24, 0.4) 85%,
+		transparent 85.5%,
+		transparent 100%
+	);
+}
+
+html.bev-green .bev-suggestions-grid button[role="listitem"]:hover .font-medium {
+	color: #1a1815;
+}
+
+html.bev-green .bev-suggestions-grid button[role="listitem"]:hover .text-xs {
+	color: #5a5042;
+}
+
+/* Show only first 9 suggestions */
+html.bev-green .bev-suggestions-grid button[role="listitem"]:nth-child(n+10) {
+	display: none;
+}
+
+/* Waterfall stagger for suggestions */
+html.bev-green .bev-suggestions-grid .waterfall {
+	animation: bev-green-waterfall 0.45s ease-out both;
+}
+html.bev-green .bev-suggestions-grid .waterfall:nth-child(1) { animation-delay: 0ms; }
+html.bev-green .bev-suggestions-grid .waterfall:nth-child(2) { animation-delay: 60ms; }
+html.bev-green .bev-suggestions-grid .waterfall:nth-child(3) { animation-delay: 120ms; }
+html.bev-green .bev-suggestions-grid .waterfall:nth-child(4) { animation-delay: 180ms; }
+html.bev-green .bev-suggestions-grid .waterfall:nth-child(5) { animation-delay: 240ms; }
+html.bev-green .bev-suggestions-grid .waterfall:nth-child(6) { animation-delay: 300ms; }
+html.bev-green .bev-suggestions-grid .waterfall:nth-child(7) { animation-delay: 360ms; }
+html.bev-green .bev-suggestions-grid .waterfall:nth-child(8) { animation-delay: 420ms; }
+html.bev-green .bev-suggestions-grid .waterfall:nth-child(9) { animation-delay: 480ms; }
+
+@keyframes bev-green-waterfall {
+	from {
+		opacity: 0;
+		transform: translateY(12px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html.bev-green body::after,
+	html.bev-green body::before,
+	html.bev-green #message-input-container:has(svg path[d^="M2.25 12c0-5.385"])::after,
+	html.bev-green #splash-screen::before,
+	html.bev-green #splash-screen::after,
+	html.bev-green .bev-suggestions-grid .waterfall,
+	html.bev-green .bev-suggestions-grid button[role="listitem"] {
+		animation: none !important;
+		transform: none !important;
+	}
+}
+
+/* Fix suggestions container height */
+html.bev-green div:has(> .bev-suggestions-grid) {
+	height: auto !important;
+	max-height: none !important;
+	overflow: visible !important;
+}

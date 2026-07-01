@@ -1,0 +1,8 @@
+FROM ghcr.io/open-webui/open-webui:main
+
+RUN sed -i "/^if WEBUI_NAME != 'Open WebUI':/s/^/# /" /app/backend/open_webui/env.py && \
+    sed -i "/^    WEBUI_NAME += ' (Open WebUI)'/s/^/# /" /app/backend/open_webui/env.py
+
+COPY branding/frontend/static /app/build/static/
+COPY branding/frontend/assets /app/build/static/assets/
+COPY branding/backend /app/backend/open_webui/static/
