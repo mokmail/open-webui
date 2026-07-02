@@ -1,20 +1,26 @@
 sources:
   - name: docs
     source: ./docs
-    kb-id: 04fa106b-9858-4b88-b656-5de2b820a16c
+    kb-id: ce08bfe2-d6fb-4c4e-ad90-3520a4545cae
     interval: 24h
-  - name : gitlab
-    source: gitlab:mokmail1/chat
-    kb-id: 04fa106b-9858-4b88-b656-5de2b820a16c
-    interval: 24h
-    exclude:
-      - "**/node_modules/**"
-      - "**/.git/**"
-      - "**/dist/**"
-      - "**/build/**"
-      - "*.ts"
-      - "*.js"
-  - name : web
-    source: web:https://bev.gv.at
-    kb-id: 04fa106b-9858-4b88-b656-5de2b820a16c
-    interval: 30m
+  # - name : gitlab
+  #   source: gitlab:mokmail1/chat
+  #   kb-id: 04fa106b-9858-4b88-b656-5de2b820a16c
+  #   interval: 24h
+  #   exclude:
+  #     - "**/node_modules/**"
+  #     - "**/.git/**"
+  #     - "**/dist/**"
+  #     - "**/build/**"
+  #     - "*.ts"
+  #     - "*.js"
+  # - name : web
+  #   source: web:https://bev.gv.at
+  #   kb-id: 04fa106b-9858-4b88-b656-5de2b820a16c
+  #   interval: 30m
+  - name: nextcloud
+    source: nextcloud:/documents
+    kb-id: ce08bfe2-d6fb-4c4e-ad90-3520a4545cae
+    interval: 1h
+
+      

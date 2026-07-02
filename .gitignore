@@ -323,3 +323,4 @@ data/*
 
 data/cache/
 data/vector_db/
+open-terminal/

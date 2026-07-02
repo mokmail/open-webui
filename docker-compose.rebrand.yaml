@@ -6,9 +6,11 @@ services:
     image: open-webui-rebrand:latest
     container_name: open-webui-rebrand
     ports:
-      - ${OPEN_WEBUI_PORT-3000}:8080
+      - "${OPEN_WEBUI_PORT-3000}:8080"
     volumes:
       - ./data:/app/backend/data
+    networks:
+      - open-webui-network
     environment:
       - WEBUI_NAME=${WEBUI_NAME:-Open WebUI}
       - WEBUI_SECRET_KEY=${WEBUI_SECRET_KEY}
@@ -16,24 +18,46 @@ services:
       - OPEN_WEBUI_API_KEY=${OPEN_WEBUI_API_KEY}
       - OLLAMA_BASE_URL=${OLLAMA_BASE_URL:-http://host.docker.internal:11434}
       - ENABLE_KB_EXEC=${ENABLE_KB_EXEC:-true}
+      #- TERMINAL_SERVER_CONNECTIONS=[{"id":"open-terminal","url":"http://localhost:8000","key":"${OPEN_TERMINAL_API_KEY:-your-secret-key}","name":"Open Terminal"}]
+      
     extra_hosts:
-      - host.docker.internal:host-gateway
+      - "host.docker.internal:host-gateway"
     restart: unless-stopped
+  
+  open-terminal:
+    image: ghcr.io/open-webui/open-terminal
+    container_name: open-terminal
+    volumes:
+      - ./open-terminal:/home/user
+    ports:
+      - "${OPEN_TERMINAL_PORT-8000}:8000"
+      - 9900:9900
+    environment:
+      - OPEN_TERMINAL_API_KEY=${OPEN_TERMINAL_API_KEY:-your-secret-key}
+
+    networks:
+      - open-webui-network
 
   oikb:
     image: ghcr.io/open-webui/oikb:latest
     container_name: oikb-rebrand
+
+    
     environment:
       - OPEN_WEBUI_URL=http://open-webui-rebrand:8080
       - OPEN_WEBUI_API_KEY=${OPEN_WEBUI_API_KEY}
       - OIKB_API_KEY=${OIKB_API_KEY}
       - LOG_FORMAT=${LOG_FORMAT:-json}
+      - NEXTCLOUD_URL=https://nextcloud.kmail.at
+      - NEXTCLOUD_USER=${NEXTCLOUD_USER}
+      - NEXTCLOUD_PASSWORD=${NEXTCLOUD_PASSWORD}
     volumes:
       - ./oikb-data/.oikb.yaml:/data/.oikb.yaml:ro
       - ./docs:/data/docs:ro
     command: daemon
     ports:
-      - ${OIKB_PORT-8081}:8080
+      - "${OIKB_PORT-8081}:8080"
+
     depends_on:
       - open-webui
     restart: unless-stopped
@@ -41,3 +65,9 @@ services:
       test: ["CMD", "curl", "-f", "http://localhost:8080/health/ready"]
       interval: 30s
       timeout: 5s
+    networks:
+      - open-webui-network
+
+networks:
+  open-webui-network:
+    driver: bridge
